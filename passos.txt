@@ -1,0 +1,16 @@
+git config --global user.name "LSeraphim"
+git config --global user.email "leostart133@gmail.com"
+
+dotnet new mvc -o Pokedex
+cd Pokedex
+
+dotnet watch run
+
+ctrl + shift + p
+
+pacotes:
+    Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    Microsoft.EntityFrameworkCore
+    Microsoft.EntityFrameworkCore.Design
+    Microsoft.EntityFrameworkCore.Tools
+    Pomelo.EntityFrameworkCore.MySql
