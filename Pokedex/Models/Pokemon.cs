@@ -44,9 +44,4 @@ public class Pokemon
 
     public ICollection<PokemonTipo> Tipos { get; set; }
 
-    [Required]
-    [StringLength(25)]
-    public string Cor { get; set; }
-
-    public ICollection<PokemonTipo> Pokemons {get; set;}
 }
