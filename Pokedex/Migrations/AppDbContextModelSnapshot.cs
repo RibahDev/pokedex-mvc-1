@@ -50,13 +50,13 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bed30aa2-f076-40d9-aa87-28754f3a0818",
+                            Id = "79389d47-0db5-4665-9fea-7bb8fc4d1303",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "f4eef5e4-1d2c-4e8d-8cd4-6015582caf54",
+                            Id = "9edf6993-4bcb-44da-ae20-e9f095a5af49",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -153,17 +153,17 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3d0503db-ba3b-4f34-9080-5f1c1e1c5559",
+                            Id = "068f4610-ad75-4700-9d7d-0e54f31062b2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d01b5f4d-e368-426b-a171-61d384619959",
+                            ConcurrencyStamp = "582ba274-8360-4d31-9659-89deff712f57",
                             Email = "admin@pokedex.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@POKEDEX.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEMuVYYRWmZFcJwWb8cipson4AEMsP8gPC/yHFORt/K7v2Zq7MuOOycWKZKzUw3Dig==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH/XH6hWKGdIVNYcMnfZxC3c2UGPklkdnWlK61iAVIizL+IgsA8lrId7bvzJlBafTg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "145a4a62-c4bc-466c-9686-9083dc6b3729",
+                            SecurityStamp = "df12a76c-ecac-4663-ad93-3495607dc057",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -233,13 +233,13 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "3d0503db-ba3b-4f34-9080-5f1c1e1c5559",
-                            RoleId = "bed30aa2-f076-40d9-aa87-28754f3a0818"
+                            UserId = "068f4610-ad75-4700-9d7d-0e54f31062b2",
+                            RoleId = "79389d47-0db5-4665-9fea-7bb8fc4d1303"
                         },
                         new
                         {
-                            UserId = "3d0503db-ba3b-4f34-9080-5f1c1e1c5559",
-                            RoleId = "f4eef5e4-1d2c-4e8d-8cd4-6015582caf54"
+                            UserId = "068f4610-ad75-4700-9d7d-0e54f31062b2",
+                            RoleId = "9edf6993-4bcb-44da-ae20-e9f095a5af49"
                         });
                 });
 
@@ -334,9 +334,6 @@ namespace Pokedex.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(2);
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
-
                     b.HasKey("PokemonNumero", "TipoId");
 
                     b.HasIndex("TipoId");
@@ -409,7 +406,7 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            UsuarioId = "3d0503db-ba3b-4f34-9080-5f1c1e1c5559",
+                            UsuarioId = "068f4610-ad75-4700-9d7d-0e54f31062b2",
                             DataNascimento = new DateTime(2000, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "/img/users/avatar.png",
                             Nome = "João Vitor Ribeiro"

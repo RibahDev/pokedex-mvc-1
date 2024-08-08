@@ -6,9 +6,7 @@ namespace Pokedex.Models;
 [Table("PokemonTipo")]
 public class PokemonTipo
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public int Numero { get; set; }
+
 
     [Key, Column(Order = 1)]
     public int PokemonNumero { get; set; }

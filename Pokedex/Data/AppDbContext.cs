@@ -19,6 +19,8 @@ namespace Pokedex.Data
         public DbSet<Regiao> Regioes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
+        public DbSet<Tipo> Tipos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
