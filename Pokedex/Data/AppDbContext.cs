@@ -107,8 +107,5 @@ namespace Pokedex.Data
         #endregion
         }
 
-
-
-
     }
 }
