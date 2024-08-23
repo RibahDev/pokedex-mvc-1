@@ -5,7 +5,8 @@ using Pokedex.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string conexao = builder.Configuration.GetConnectionString("PokedexConexao");
+string conexao = builder.Configuration
+    .GetConnectionString("PokedexConexao");
 var versao = ServerVersion.AutoDetect(conexao);
 builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseMySql(conexao, versao)
@@ -14,8 +15,6 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
-
-
 
 builder.Services.AddControllersWithViews();
 
@@ -33,7 +32,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -24,12 +24,11 @@ public class Pokemon
     [StringLength(30)]
     public string Nome { get; set; }
 
-    [Required]
     [StringLength(1000)]
     public string Descricao { get; set; }
 
     [Required]
-    [Column(TypeName = "decimal(5,2)")]
+    [Column(TypeName = "double(5,2)")]
     public double Altura { get; set; }
 
     [Required]
@@ -43,5 +42,4 @@ public class Pokemon
     public string Animacao { get; set; }
 
     public ICollection<PokemonTipo> Tipos { get; set; }
-
 }

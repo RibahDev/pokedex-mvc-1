@@ -278,9 +278,9 @@ namespace Pokedex.Migrations
                     GeneroId = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Descricao = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Altura = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Altura = table.Column<double>(type: "double(5,2)", nullable: false),
                     Peso = table.Column<double>(type: "double(7,3)", nullable: false),
                     Imagem = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -335,28 +335,28 @@ namespace Pokedex.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "79389d47-0db5-4665-9fea-7bb8fc4d1303", null, "Administrador", "ADMINISTRADOR" },
-                    { "9edf6993-4bcb-44da-ae20-e9f095a5af49", null, "Usuário", "USUÁRIO" }
+                    { "13375524-ac9a-437f-ad80-868a5728cc38", null, "Usuário", "USUÁRIO" },
+                    { "5c8bf0e3-0c51-450b-b115-42c24bee0d4e", null, "Administrador", "ADMINISTRADOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "068f4610-ad75-4700-9d7d-0e54f31062b2", 0, "582ba274-8360-4d31-9659-89deff712f57", "admin@pokedex.com", true, false, null, "ADMIN@POKEDEX.COM", "ADMIN", "AQAAAAIAAYagAAAAEH/XH6hWKGdIVNYcMnfZxC3c2UGPklkdnWlK61iAVIizL+IgsA8lrId7bvzJlBafTg==", null, false, "df12a76c-ecac-4663-ad93-3495607dc057", false, "Admin" });
+                values: new object[] { "5f864fa9-b1aa-4a7b-834e-f07ae4338019", 0, "82169f18-98c4-421b-bd21-34dc4c3724a2", "admin@pokedex.com", true, false, null, "ADMIN@POKEDEX.COM", "ADMIN", "AQAAAAIAAYagAAAAED095sGWb9eN3BianF6Vlk5Na4PQR7cqy4/RvtdhtQ32yx2QNPv57yZxHzzJmIW2AA==", null, false, "86fd4a3f-62d2-4053-8565-e4ef847675a8", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "79389d47-0db5-4665-9fea-7bb8fc4d1303", "068f4610-ad75-4700-9d7d-0e54f31062b2" },
-                    { "9edf6993-4bcb-44da-ae20-e9f095a5af49", "068f4610-ad75-4700-9d7d-0e54f31062b2" }
+                    { "13375524-ac9a-437f-ad80-868a5728cc38", "5f864fa9-b1aa-4a7b-834e-f07ae4338019" },
+                    { "5c8bf0e3-0c51-450b-b115-42c24bee0d4e", "5f864fa9-b1aa-4a7b-834e-f07ae4338019" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "UsuarioId", "DataNascimento", "Foto", "Nome" },
-                values: new object[] { "068f4610-ad75-4700-9d7d-0e54f31062b2", new DateTime(2000, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/users/avatar.png", "João Vitor Ribeiro" });
+                values: new object[] { "5f864fa9-b1aa-4a7b-834e-f07ae4338019", new DateTime(1981, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/users/avatar.png", "José Antonio Gallo Junior" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

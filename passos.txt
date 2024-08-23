@@ -1,25 +1,30 @@
-git config --global user.name "LSeraphim"
-git config --global user.email "leostart133@gmail.com"
+git config --global user.name GalloJunior
+git config --global user.email gallojunior
 
 dotnet new mvc -o Pokedex
+
 cd Pokedex
 
 dotnet watch run
 
-ctrl + shift + p
-
-pacotes:
-    Microsoft.AspNetCore.Identity.EntityFrameworkCore
-    Microsoft.EntityFrameworkCore
-    Microsoft.EntityFrameworkCore.Design
-    Microsoft.EntityFrameworkCore.Tools
-    Pomelo.EntityFrameworkCore.MySql
+Abrir Nuget Gallery
+Ctrl + Shift + P - Pesquisar Nuget
 
 
-Ferramentas: 
-    dotnet ef | dotnet tool install --global dotnet-ef
-    dotnet tool update --global dotnet-ef --version 8.0.7
+dotnet tool install --global dotnet-ef --version 8.0.7
 
-    dotnet ef migrations add inicializando-banco
+dotnet tool update --global dotnet-ef --version 8.0.7
 
-    dotnet ef database update
+dotnet ef migrations add inicializando-banco
+
+dotnet ef database update
+
+
+
+TODA AULA:
+dotnet ef database update
+SQL Inserir Dados e executar no Workbench
+
+
+
+

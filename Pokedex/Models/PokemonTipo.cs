@@ -6,8 +6,6 @@ namespace Pokedex.Models;
 [Table("PokemonTipo")]
 public class PokemonTipo
 {
-
-
     [Key, Column(Order = 1)]
     public int PokemonNumero { get; set; }
     [ForeignKey("PokemonNumero")]

@@ -1,48 +1,45 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pokedex.Models;
 
-namespace Pokedex.Data
+namespace Pokedex.Data;
+
+public class AppDbContext : IdentityDbContext
 {
-    public class AppDbContext : IdentityDbContext
+
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
+    }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
+    public DbSet<Genero> Generos { get; set; }
+    public DbSet<Pokemon> Pokemons { get; set; }
+    public DbSet<PokemonTipo> PokemonTipos { get; set; }
+    public DbSet<Regiao> Regioes { get; set; }
+    public DbSet<Tipo> Tipos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 
-        public DbSet<Genero> Generos { get; set; }
-        public DbSet<Pokemon> Pokemons { get; set; }
-        public DbSet<PokemonTipo> PokemonTipos { get; set; }
-        public DbSet<Regiao> Regioes { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
 
-        public DbSet<Tipo> Tipos { get; set; }
+        #region Muitos para Muitos do Pokemon Tipo
+        builder.Entity<PokemonTipo>().HasKey(
+            pt => new { pt.PokemonNumero, pt.TipoId }
+        );
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
+        builder.Entity<PokemonTipo>()
+            .HasOne(pt => pt.Pokemon)
+            .WithMany(p => p.Tipos)
+            .HasForeignKey(pt => pt.PokemonNumero);
 
-            #region Muitos para Muitos do Pokemon Tipo
-            builder.Entity<PokemonTipo>().HasKey(
-                pt => new { pt.PokemonNumero, pt.TipoId }
-            );
+        builder.Entity<PokemonTipo>()
+            .HasOne(pt => pt.Tipo)
+            .WithMany(t => t.Pokemons)
+            .HasForeignKey(pt => pt.TipoId);
+        #endregion
 
-            builder.Entity<PokemonTipo>()
-                .HasOne(pt => pt.Pokemon)
-                .WithMany(p => p.Tipos)
-                .HasForeignKey(pt => pt.PokemonNumero);
-
-            builder.Entity<PokemonTipo>()
-                .HasOne(pt => pt.Tipo)
-                .WithMany(t => t.Pokemons)
-                .HasForeignKey(pt => pt.TipoId);
-
-            #endregion
-
-            #region Populate Roles - Perfis de Usuário
+        #region Populate Roles - Perfis de Usuário
         List<IdentityRole> roles = new()
         {
             new IdentityRole()
@@ -83,8 +80,8 @@ namespace Pokedex.Data
         List<Usuario> usuarios = new(){
             new Usuario(){
                 UsuarioId = users[0].Id,
-                Nome = "João Vitor Ribeiro",
-                DataNascimento = DateTime.Parse("17/04/2000"),
+                Nome = "José Antonio Gallo Junior",
+                DataNascimento = DateTime.Parse("05/08/1981"),
                 Foto = "/img/users/avatar.png"
             }
         };
@@ -105,7 +102,6 @@ namespace Pokedex.Data
         };
         builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
-        }
-
     }
+
 }

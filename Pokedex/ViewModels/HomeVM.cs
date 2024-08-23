@@ -1,5 +1,3 @@
-
-
 using Pokedex.Models;
 
 namespace Pokedex.ViewModels
@@ -8,7 +6,5 @@ namespace Pokedex.ViewModels
     {
         public List<Tipo> Tipos { get; set; }
         public List<Pokemon> Pokemons { get; set; }
-
-
     }
 }
